@@ -1,6 +1,5 @@
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 export async function apiPost(url: string, data: any) {
-  const response = await fetch(`${BASE_URL}${url}`, {
+  const response = await fetch(`/api${url}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
