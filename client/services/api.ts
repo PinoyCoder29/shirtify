@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 export async function apiPost(url: string, data: any) {
   const response = await fetch(`${BASE_URL}${url}`, {
     method: "POST",
