@@ -1,6 +1,5 @@
 .navbar {
-  background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid black;
+  background-color: #fffcfc;
 }
 .logo {
   background-color: white;
@@ -12,11 +11,35 @@
   font-size: clamp(0.3rem, 2vw, 1rem);
   margin: 30px;
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: #bcabb0;
+}
+.navlink:hover {
+  background-color: #785964;
+  padding: 5px 10px;
+  border-radius: 25px;
 }
 
-li .active {
-  color: rgb(36, 7, 168);
+.active {
+  color: #ffffff !important;
+  background-color: #5d3543 !important;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   border-radius: 25px;
-  padding: 5px;
+  padding: 5px 10px;
+}
+
+.authLink:hover {
+  background-color: #785964;
+}
+.login {
+  background-color: #5d3543;
+  color: #bcabb0;
+  padding: 5px 15px;
+  border-radius: 25px;
+}
+.login:hover {
+  background-color: #785964;
+}
+.signUp {
+  background-color: transparent !important;
+  color: black;
 }

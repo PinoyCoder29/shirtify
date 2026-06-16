@@ -1,0 +1,24 @@
+/* base */
+.uiButton {
+  padding: 5px 15px;
+  border-radius: 25px;
+  border: none;
+}
+
+/* default */
+.primary {
+  background: #5d3543;
+  color: white;
+}
+
+/* sign up */
+.signup {
+  background: transparent;
+  color: #000000;
+}
+
+/* login */
+.login {
+  /* background: #785964; */
+  color: #000000;
+}

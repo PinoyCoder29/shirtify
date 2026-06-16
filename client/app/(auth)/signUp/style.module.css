@@ -1,0 +1,22 @@
+.authSection {
+  background: #f5f5f5;
+}
+
+.authCard {
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+}
+
+.leftContent {
+  color: #785964;
+  height: 100%;
+  padding: 20px;
+}
+.leftContent h2 {
+  color: #5d3543;
+}
+
+.rightContent {
+  background: #fff;
+}
