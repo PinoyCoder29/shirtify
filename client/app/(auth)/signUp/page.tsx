@@ -41,10 +41,10 @@ export default function SignUp() {
   return (
     <section className={styles.authSection}>
       <div className="container">
-        <div className="row justify-content-center  min-vh-100 py-5">
+        <div className="row justify-content-center min-vh-100 py-5">
           {/* MAIN CARD */}
           <div className="col-lg-8 col-md-10 px-5 px-md-0">
-            <div className={`row shadow ${styles.authCard}`}>
+            <div className={`row ${styles.authCard}`}>
               {/* LEFT SIDE */}
               <div className="col-md-6 d-none d-md-flex flex-column justify-content-center p-4">
                 <div className={styles.leftContent}>

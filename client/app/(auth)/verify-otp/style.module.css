@@ -1,0 +1,16 @@
+.otpContent {
+  border: 2px solid rgb(77, 73, 73);
+  border-radius: 25px;
+  box-shadow: 15px 15px 4px rgb(99, 97, 97);
+}
+.otpInput {
+  height: 50px;
+  width: 50px;
+  border: 1px solid rgb(199, 190, 190);
+  text-align: center;
+  border-radius: 8px;
+}
+
+.otpButton {
+  padding: 10px 50px;
+}

@@ -6,6 +6,7 @@
   border-radius: 20px;
   overflow: hidden;
   background: white;
+  box-shadow: 15px 15px 4px rgb(99, 97, 97);
 }
 
 .leftContent {
