@@ -25,5 +25,5 @@ body {
   padding: 5px 10px;
 }
 .heroContent {
-  margin-left: 100px;
+  margin-left: clamp(0rem, 3.3vw, 100px);
 }
