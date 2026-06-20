@@ -43,7 +43,7 @@ export default function Login() {
             <div className={`col-md-8 ${styles.loginContent}`}>
               <div className="row align-items-center">
                 {/* left SIDE */}
-                <div className="col-md-6">
+                <div className="col-md-6 d-none d-md-block">
                   <header>
                     <h1>Shirtify</h1>
                     <p>
