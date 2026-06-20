@@ -11,3 +11,7 @@ export function register(data: {
 export function verifyOtp(data: { email: string; otp: string }) {
   return apiPost("/auth/verify-otp", data);
 }
+
+export function login(data: { email: string; password: string }) {
+  return apiPost("/auth/login", data);
+}

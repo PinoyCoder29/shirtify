@@ -83,6 +83,7 @@ export default function SignUp() {
                       type="text"
                       value={form.fullName}
                       onChange={handleChange}
+                      required
                     />
                     <input
                       className="form-control mb-3"
@@ -91,6 +92,7 @@ export default function SignUp() {
                       name="email"
                       onChange={handleChange}
                       placeholder="Email"
+                      required
                     />
                     <input
                       className="form-control mb-3"
@@ -99,6 +101,7 @@ export default function SignUp() {
                       type="password"
                       value={form.password}
                       onChange={handleChange}
+                      required
                     />
 
                     <Button className="w-100" type="submit">
@@ -107,7 +110,7 @@ export default function SignUp() {
                   </form>
 
                   <small className="d-block mt-3">
-                    Already have an account? Login
+                    Already have an account?<a href="/login">Login</a>
                   </small>
                 </div>
               </div>

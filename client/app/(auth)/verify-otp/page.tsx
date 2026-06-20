@@ -51,23 +51,23 @@ export default function VerifyOtp() {
                     A 6-digit OTP has been sent to your email. Enter it below to
                     verify your account.
                   </p>
-
-                  <form onSubmit={handleSubmit}>
-                    <input
-                      type="text"
-                      maxLength={6}
-                      className="form-control text-center mb-3"
-                      onChange={(e) => setOtp(e.target.value)}
-                    />
-
-                    <Button type="submit" className={styles.otpButton}>
-                      {loading ? "Loading..." : "Continue"}
-                    </Button>
-                    <p>
-                      Didn't get OTP?<span className="fw-bold">Resend OTP</span>
-                    </p>
-                  </form>
                 </header>
+                <form onSubmit={handleSubmit}>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    maxLength={6}
+                    className="form-control text-center mb-3"
+                    onChange={(e) => setOtp(e.target.value)}
+                  />
+
+                  <Button type="submit" className={styles.otpButton}>
+                    {loading ? "Loading..." : "Continue"}
+                  </Button>
+                  <p>
+                    Didn't get OTP?<span className="fw-bold">Resend OTP</span>
+                  </p>
+                </form>
               </div>
             </div>
           </div>

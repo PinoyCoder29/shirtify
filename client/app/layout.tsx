@@ -24,7 +24,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <Navbar />
         {children}
         <ToastContainer position="top-right"></ToastContainer>
       </body>
