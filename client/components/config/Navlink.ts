@@ -1,6 +1,7 @@
 export const NavConfigs = {
   main: [
     { name: "Home", path: "/", icon: "" },
+    { name: "Start Selling", path: "/selling", icon: "" },
     { name: "Product", path: "/product", icon: "" },
     { name: "About us ", path: "/about", icon: "" },
   ],

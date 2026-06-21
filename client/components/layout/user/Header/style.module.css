@@ -1,0 +1,8 @@
+.headerContent {
+  border: 1px solid grey;
+  margin: 5px;
+  border-radius: 25px;
+  background-color: rgb(227, 230, 227);
+  box-shadow: 0 6px 4px rgb(10, 10, 10);
+  margin-bottom: 10px;
+}

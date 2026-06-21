@@ -28,7 +28,7 @@ export default function Login() {
         return;
       }
       toast.success(res.message);
-      router.push("/dashboard");
+      router.push("/home");
     } catch (error) {
       setLoading(false);
       toast.error("server error.");

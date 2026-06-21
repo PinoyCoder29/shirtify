@@ -1,0 +1,26 @@
+.sidebar {
+  width: 220px;
+  left: 10px;
+  position: fixed;
+  border: 1px solid hsl(0, 2%, 39%);
+  border-radius: 10px;
+  background-color: rgb(227, 230, 227);
+  top: 20vh;
+  box-shadow: 10px 10px 4px rgb(36, 35, 35);
+}
+
+@media (min-width: 768px) {
+  body {
+    margin-left: 240px;
+  }
+}
+
+.navlink.active {
+  background-color: rgb(83, 80, 80);
+  margin: 4px;
+  border-radius: 15px;
+  color: rgb(214, 207, 207);
+}
+.navlink {
+  color: black;
+}
