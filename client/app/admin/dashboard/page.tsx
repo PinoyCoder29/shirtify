@@ -1,7 +1,7 @@
 export default function dashboard() {
   return (
     <main>
-      <div className="container"></div>
+      <div className="container">hi</div>
     </main>
   );
 }
