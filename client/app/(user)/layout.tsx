@@ -1,4 +1,4 @@
-import Navbar from "@/components/layout/Navbar/page";
+import { UserNavlinks } from "@/components/config/UserNavlink";
 import Header from "@/components/layout/user/Header/page";
 import Sidebar from "@/components/layout/user/Sidebar/page";
 
@@ -8,7 +8,7 @@ export default function PublicLayout({
   return (
     <>
       <Header />
-      <Sidebar />
+      <Sidebar links={UserNavlinks} />
       {children}
     </>
   );

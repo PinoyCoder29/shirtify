@@ -15,3 +15,7 @@ export function verifyOtp(data: { email: string; otp: string }) {
 export function login(data: { email: string; password: string }) {
   return apiPost("/auth/login", data);
 }
+
+export function adminLogin(data: { email: string; password: string }) {
+  return apiPost("/auth/adminLogin", data);
+}
