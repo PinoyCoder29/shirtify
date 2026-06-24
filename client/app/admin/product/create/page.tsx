@@ -105,9 +105,12 @@ export default function CreateProduct() {
                     </div>
                   </div>
                 </div>
+              </div>
 
+              {/* RIGHT SIDE */}
+              <div className="col-lg-4">
                 {/* PRODUCT IMAGES */}
-                <div className="card p-4">
+                <div className="card p-4 mb-3">
                   <h3 className="mb-3">Product Images</h3>
 
                   <input type="file" className="form-control" multiple />
@@ -116,10 +119,6 @@ export default function CreateProduct() {
                     Upload one or more product images.
                   </small>
                 </div>
-              </div>
-
-              {/* RIGHT SIDE */}
-              <div className="col-lg-4">
                 <div className="card p-4">
                   <h3 className="mb-3">Publish</h3>
 

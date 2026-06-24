@@ -16,6 +16,7 @@
     "bcryptjs": "^3.0.3",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
+    "cloudinary": "^2.10.0",
     "crypto": "^1.0.1",
     "jsonwebtoken": "^9.0.3",
     "next": "16.2.9",
