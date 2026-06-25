@@ -33,7 +33,7 @@ model Product{
 }
 model ProductVariant {
   id String @id @default(cuid())
-  size String[]
+  size String
   stock Int
   
   productId String

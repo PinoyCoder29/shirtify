@@ -26,12 +26,28 @@ export async function POST(req: Request) {
         images,
 
         variants: {
-          create: variants.map((v: any) => ({
+          create: (variants || []).map((v: any) => ({
             size: v.size,
             stock: v.stock,
           })),
         },
       },
+      include: {
+        variants: true,
+      },
     });
-  } catch (error) {}
+    return NextResponse.json({
+      success: true,
+      product,
+    });
+  } catch (error) {
+    return NextResponse.json(
+      {
+        success: false,
+        message: "server error",
+        error: String(error),
+      },
+      { status: 500 },
+    );
+  }
 }
