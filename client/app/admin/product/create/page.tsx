@@ -10,18 +10,31 @@ export default function CreateProduct() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState<number>(0);
-  const [stock, setStock] = useState<number>(0);
   const [category, setCategory] = useState("");
 
   const [images, setImages] = useState<string[]>([]);
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
+  const [sizeStocks, setSizeStocks] = useState<Record<string, number>>({});
 
   const [loading, setLoading] = useState(false);
 
   function handleSizeChange(size: string) {
-    setSelectedSizes((prev) =>
-      prev.includes(size) ? prev.filter((s) => s !== size) : [...prev, size],
-    );
+    if (selectedSizes.includes(size)) {
+      setSelectedSizes((prev) => prev.filter((s) => s !== size));
+
+      setSizeStocks((prev) => {
+        const updated = { ...prev };
+        delete updated[size];
+        return updated;
+      });
+    } else {
+      setSelectedSizes((prev) => [...prev, size]);
+
+      setSizeStocks((prev) => ({
+        ...prev,
+        [size]: 0,
+      }));
+    }
   }
 
   async function handleImageChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -53,7 +66,7 @@ export default function CreateProduct() {
 
       const variants = selectedSizes.map((size) => ({
         size,
-        stock,
+        stock: sizeStocks[size] || 0,
       }));
 
       const result = await createProduct({
@@ -72,10 +85,10 @@ export default function CreateProduct() {
       setName("");
       setDescription("");
       setPrice(0);
-      setStock(0);
       setCategory("");
       setImages([]);
       setSelectedSizes([]);
+      setSizeStocks({});
     } catch (error) {
       console.error(error);
       alert("Failed to create product");
@@ -102,12 +115,9 @@ export default function CreateProduct() {
                   <h3 className="mb-3">General Information</h3>
 
                   <div className="mb-3">
-                    <label htmlFor="name" className="form-label">
-                      Product Name
-                    </label>
+                    <label className="form-label">Product Name</label>
 
                     <input
-                      id="name"
                       type="text"
                       className="form-control"
                       placeholder="Enter product name"
@@ -117,12 +127,9 @@ export default function CreateProduct() {
                   </div>
 
                   <div className="mb-3">
-                    <label htmlFor="description" className="form-label">
-                      Description
-                    </label>
+                    <label className="form-label">Description</label>
 
                     <textarea
-                      id="description"
                       className="form-control"
                       rows={6}
                       placeholder="Enter product description"
@@ -133,48 +140,25 @@ export default function CreateProduct() {
                 </div>
 
                 {/* PRODUCT DETAILS */}
-                <div className="card p-4 mb-4">
+                <div className="card p-4">
                   <h3 className="mb-3">Product Details</h3>
 
-                  <div className="row">
-                    <div className="col-md-6 mb-3">
-                      <label htmlFor="price" className="form-label">
-                        Price
-                      </label>
+                  <div className="mb-3">
+                    <label className="form-label">Price</label>
 
-                      <input
-                        id="price"
-                        type="number"
-                        className="form-control"
-                        placeholder="₱0.00"
-                        value={price}
-                        onChange={(e) => setPrice(Number(e.target.value))}
-                      />
-                    </div>
-
-                    <div className="col-md-6 mb-3">
-                      <label htmlFor="stock" className="form-label">
-                        Stock Quantity
-                      </label>
-
-                      <input
-                        id="stock"
-                        type="number"
-                        className="form-control"
-                        placeholder="0"
-                        value={stock}
-                        onChange={(e) => setStock(Number(e.target.value))}
-                      />
-                    </div>
+                    <input
+                      type="number"
+                      className="form-control"
+                      placeholder="₱0.00"
+                      value={price}
+                      onChange={(e) => setPrice(Number(e.target.value))}
+                    />
                   </div>
 
                   <div className="mb-3">
-                    <label htmlFor="category" className="form-label">
-                      Category
-                    </label>
+                    <label className="form-label">Category</label>
 
                     <select
-                      id="category"
                       className="form-select"
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
@@ -186,7 +170,7 @@ export default function CreateProduct() {
                     </select>
                   </div>
 
-                  <div>
+                  <div className="mb-3">
                     <label className="form-label">Available Sizes</label>
 
                     <div className="d-flex gap-4 flex-wrap">
@@ -204,23 +188,49 @@ export default function CreateProduct() {
                       ))}
                     </div>
                   </div>
+
+                  {selectedSizes.length > 0 && (
+                    <div className="mt-4">
+                      <h5>Stock Per Size</h5>
+
+                      <div className="row">
+                        {selectedSizes.map((size) => (
+                          <div className="col-md-6 mb-3" key={size}>
+                            <label className="form-label">{size} Stock</label>
+
+                            <input
+                              type="number"
+                              min={0}
+                              className="form-control"
+                              value={sizeStocks[size] || 0}
+                              onChange={(e) =>
+                                setSizeStocks((prev) => ({
+                                  ...prev,
+                                  [size]: Number(e.target.value),
+                                }))
+                              }
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
               {/* RIGHT SIDE */}
               <div className="col-lg-4">
-                {/* PRODUCT IMAGES */}
                 <div className="card p-4 mb-3">
                   <h3 className="mb-3">Product Images</h3>
 
                   <input
                     type="file"
-                    className="form-control"
                     multiple
+                    className="form-control"
                     onChange={handleImageChange}
                   />
 
-                  <small className="text-muted mt-2 d-block">
+                  <small className="text-muted d-block mt-2">
                     Upload one or more product images.
                   </small>
 
@@ -239,7 +249,6 @@ export default function CreateProduct() {
                   )}
                 </div>
 
-                {/* PUBLISH */}
                 <div className="card p-4">
                   <button
                     type="submit"

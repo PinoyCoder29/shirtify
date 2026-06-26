@@ -15,5 +15,5 @@ export type CreateProductInput = {
 };
 
 export function createProduct(data: CreateProductInput) {
-  return apiPost("/products", data);
+  return apiPost("/products/create", data);
 }
