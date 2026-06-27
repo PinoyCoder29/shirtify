@@ -1,19 +1,10 @@
-import { apiPost } from "./api";
-
-export type ProductVariant = {
-  size: string;
-  stock: number;
-};
-
-export type CreateProductInput = {
-  name: string;
-  description: string;
-  price: number;
-  category: string;
-  images: string[];
-  variants: ProductVariant[];
-};
+import { CreateProductInput, Product } from "@/app/type/product";
+import { apiGet, apiPost } from "./api";
 
 export function createProduct(data: CreateProductInput) {
   return apiPost("/products/create", data);
+}
+
+export function getProduct() {
+  return apiGet<Product[]>("/products");
 }

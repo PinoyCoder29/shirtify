@@ -11,3 +11,10 @@ export async function apiPost(url: string, data: any) {
 
   return response.json();
 }
+
+export async function apiGet<T>(url: string): Promise<T> {
+  const response = await fetch(`/api${url}`, {
+    method: "GET",
+  });
+  return response.json();
+}
