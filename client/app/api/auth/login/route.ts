@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          message: "Invalid Credintials",
+          message: "Invalid Credintials", 
         },
         {
           status: 400,

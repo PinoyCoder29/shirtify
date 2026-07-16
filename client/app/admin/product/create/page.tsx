@@ -70,7 +70,7 @@ export default function CreateProduct() {
       }));
 
       const result = await createProduct({
-        name,
+        name, 
         description,
         price,
         category,

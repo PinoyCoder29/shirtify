@@ -10,7 +10,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         { success: false, message: "Email and OTP required" },
         { status: 400 },
-      );
+      );  
     }
 
     const cleanEmail = email.toLowerCase().trim();

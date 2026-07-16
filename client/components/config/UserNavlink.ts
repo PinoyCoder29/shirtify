@@ -14,7 +14,7 @@ export const UserNavlinks = [
     icon: "bi-card-text",
     path: "/product-details",
   },
-  {
+  { 
     name: "Cart",
     icon: "bi-cart-fill",
     path: "/cart",

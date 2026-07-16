@@ -8,11 +8,14 @@ export async function GET() {
         variants: true,
       },
     });
+
     return NextResponse.json(product);
   } catch (error) {
+    console.error(error);
+
     return NextResponse.json(
       {
-        mesage: "failed to fetch the product!",
+        message: "Failed to fetch products",
       },
       { status: 400 },
     );
