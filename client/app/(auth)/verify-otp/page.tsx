@@ -4,10 +4,12 @@ import { verifyOtp } from "@/services/auth.service";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import styles from "./style.module.css";
+import { useRouter } from "next/navigation";
+
 export default function VerifyOtp() {
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const router = useRouter();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -32,6 +34,7 @@ export default function VerifyOtp() {
       }
       toast.success(res.message);
       sessionStorage.removeItem("verify_email");
+      router.push("/login");
     } catch (error) {
       setLoading(false);
     }

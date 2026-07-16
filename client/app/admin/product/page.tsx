@@ -1,10 +1,11 @@
 "use client";
+import { Product } from "@/app/type/product";
 import ProductCard from "@/components/product/ProductCard";
 import { getProduct } from "@/services/product.service";
 import { useEffect, useState } from "react";
 
-export default function Product() {
-  const [product, setProduct] = useState<any[]>([]);
+export default function ProductPage() {
+  const [product, setProduct] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function fetchProduct() {
@@ -28,10 +29,10 @@ export default function Product() {
   return (
     <main>
       <div className="row mt-5 mx-3 g-3">
-        {product.map((product: any) => {
+        {product.map((item: any) => {
           return (
-            <div className="col-md-3 col-6" key={product.id}>
-              <ProductCard product={product} />
+            <div className="col-md-3 col-6" key={item.id}>
+              <ProductCard product={item} />
             </div>
           );
         })}
