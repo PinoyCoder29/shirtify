@@ -1,4 +1,5 @@
 .card {
+  height: 17rem;
   border-radius: 20px;
   box-shadow: 10px 10px 0 rgba(82, 74, 74, 0.75);
   transition:
